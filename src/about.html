@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнать больше | Task Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+    /* Измененные стили .main-content */
+.main-content {
+  padding-top: 100px; /* Увеличьте значение, чтобы текст не перекрывался */
+}
+
+/* Новый класс с анимацией для .content-section */
+/* Центрирование кнопки */
+.content-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+  text-align: center; /* Добавляем центрирование содержимого */
+}
+
+/* Ключевые кадры для анимации fadeInUp */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Изменения в кнопке .cta-button */
+.cta-button {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Оставляем inline-block */
+  margin-top: 20px;
+}
+
+/* Изменения в .footer */
+.footer {
+  margin-top: auto;
+}
+
+.content-section p {
+  text-align: left; /* Выравнивание текста по левому краю */
+  margin: 10px 0;
+}
+
+/* Адаптивные изменения в блоке @media (max-width: 768px) */
+@media (max-width: 768px) {
+  .main-content {
+      padding-top: 100px;
+  }
+
+  .content-section {
+      padding: 15px;
+  }
+
+  .cta-button {
+      padding: 8px 16px;
+  }
+}
+
+    </style>
+</head>
+<body>
+<script src="bundle.js"></script>
+    <header class="header">
+        <nav class="nav-bar">
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Проекты</a></li>
+                <li class="nav-item"><a href="works.html" class="nav-link">Список задач</a></li>
+                <li class="nav-item active"><a href="" class="nav-link">О приложении</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <button class="close-sidebar" aria-label="Close sidebar">&times;</button>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="projects.html">Проекты</a></li>
+            <li><a href="works.html">Список задач</a></li>
+            <li><a href="about.html">О приложении</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <section class="content-section">
+            <h2>Узнайте больше о Task Management</h2>
+            <p>Наше приложение предоставляет удобный способ управления задачами и проектами. Оно помогает вам оставаться организованными, эффективными и продуктивными в повседневной жизни.</p>
+            <p>Интерфейс интуитивно понятен, а функции позволяют легко отслеживать прогресс, назначать приоритеты и работать в команде.</p>
+            <a href="projects.html" class="cta-button">Перейти к проектам</a>
+        </section>
+
+        <section class="content-section">
+            <h2>Почему стоит выбрать Task Management?</h2>
+            <p>Мы предлагаем вам удобные инструменты для контроля над всеми вашими задачами. Удобная система уведомлений, настраиваемые списки и возможность командной работы — всё, что нужно для продуктивного дня.</p>
+            <p>С нашим приложением управление проектами станет гораздо проще и приятнее.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Task Management. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // JavaScript для управления боковым меню и бургер-меню
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const sidebar = document.querySelector('.sidebar');
+            const closeSidebarButton = document.querySelector('.close-sidebar');
+            const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+            burgerMenu.addEventListener('click', (event) => {
+                event.stopPropagation();
+                burgerMenu.classList.toggle('open');
+                sidebar.classList.toggle('open');
+            });
+
+            closeSidebarButton.addEventListener('click', () => {
+                burgerMenu.classList.remove('open');
+                sidebar.classList.remove('open');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    burgerMenu.classList.remove('open');
+                    sidebar.classList.remove('open');
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!sidebar.contains(event.target) && !burgerMenu.contains(event.target)) {
+                    burgerMenu.classList.remove('open');
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

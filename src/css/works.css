@@ -1,0 +1,238 @@
+/* Анимация появления для карточек задач */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили контейнера задач */
+.task-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Применяем анимацию к карточкам задач */
+.task-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.task-container .task-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.task-container .task-card:nth-child(odd) {
+    animation-delay: 0.4s;
+}
+
+.task-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для статусов задач */
+.status {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f39c12;
+}
+
+.status.completed {
+    color: #2ecc71;
+}
+
+/* Общие стили для кнопок, кроме burger-menu */
+.add-task-button, .delete-button, .progress-button, .complete-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Кнопки удаления */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+    animation: pulse 0.4s ease-in-out;
+}
+
+/* Кнопки управления задачами */
+.progress-button, .complete-button {
+    background-color: #3498db;
+    color: white;
+}
+
+.progress-button:hover, .complete-button:hover {
+    background-color: #2980b9;
+    animation: pulse 0.4s ease-in-out;
+}
+
+/* Специальный цвет для кнопки "Добавить задачу" */
+.add-task-button {
+    background-color: #27ae60;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.add-task-button:hover {
+    background-color: #1abc9c;
+    animation: pulse 0.4s ease-in-out;
+}
+
+/* Кнопка закрытия диалога */
+
+.modal-buttons {
+    display: flex; /* Используем Flexbox для выстраивания кнопок в строку */
+    justify-content: flex-start; /* Выровнять кнопки по началу строки */
+    gap: 10px; /* Отступ между кнопками */
+}
+
+#addDialogButton {
+    background-color: #2ecc71; /* Зеленый цвет для кнопки Add */
+    color: white;
+    padding: 10px; /* Добавить отступы для улучшения внешнего вида */
+    border: none; /* Убрать границу */
+    border-radius: 5px; /* Добавить скругление углов */
+}
+
+#closeDialogButton {
+    background-color: #e74c3c; /* Красный цвет для кнопки Close */
+    color: white;
+    padding: 10px; /* Добавить отступы для улучшения внешнего вида */
+    border: none; /* Убрать границу */
+    border-radius: 5px; /* Добавить скругление углов */
+}
+
+#closeDialogButton:hover {
+    background-color: #c0392b;
+    animation: pulse 0.4s ease-in-out;
+}
+
+/* Анимация пульсации для кнопок */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Анимация появления модального окна */
+@keyframes modalFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Модальное окно */
+.modal {
+    border: none;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    z-index: 1001;
+}
+
+/* Затемнение фона при открытом модальном окне с плавным появлением */
+@keyframes overlayFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Затемнение фона */
+dialog[open] ~ #overlay {
+    display: block;
+}
+
+/* Стили для input[type="text"] */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .task-card {
+        width: 100%;
+    }
+
+    .add-task-button, .delete-button, .progress-button, .complete-button {
+        min-width: 100%;
+        margin-top: 10px;
+    }
+}

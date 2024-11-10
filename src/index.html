@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | Task Management</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<script src="bundle.js"></script>
+    <header class="header">
+        <nav class="nav-bar">
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="#" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Проекты</a></li>
+                <li class="nav-item"><a href="works.html" class="nav-link">Список задач</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">О приложении</a></li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="sidebar">
+        <button class="close-sidebar" aria-label="Close sidebar">&times;</button>
+        <ul class="sidebar-menu">
+            <li><a href="#">Главная</a></li>
+            <li><a href="projects.html">Проекты</a></li>
+            <li><a href="works.html">Список задач</a></li>
+            <li><a href="about.html">О приложении</a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="left-section">
+                    <img src="images/logo.png" alt="Логотип" class="logo">
+                    <h1 class="app-title">Task Management</h1>
+                    <p class="app-description">Простое и удобное приложение для управления задачами и проектами. Поможет вам оставаться организованным и продуктивным.</p>
+                    <a href="about.html" class="cta-button">Узнать больше</a>
+                </div>
+                <div class="right-section">
+                    <a href="your-link-here.html">
+                        <object type="image/svg+xml" data="images/work1.svg" class="hero-image"></object>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>О проекте</h2>
+            <p>Task Management — это продвинутый инструмент для отслеживания проектов и задач. Он помогает вам управлять временем и задачами с легкостью.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Возможности</h2>
+            <ul>
+                <li>Создание задач и проектов</li>
+                <li>Отслеживание прогресса</li>
+                <li>Назначение приоритетов</li>
+                <li>Командная работа над проектами</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Как это работает</h2>
+            <p>Приложение Task Management позволяет вам создавать, редактировать и отслеживать задачи в режиме реального времени. Поддержка командной работы делает его идеальным для управления как личными, так и рабочими проектами.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Task Management. Все права защищены.</p>
+    </footer>
+
+    <script src="js/burger.js"></script>
+</body>
+</html>
