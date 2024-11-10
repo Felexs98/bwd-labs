@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка 404 | Страница не найдена</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/404.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+	<script src="bundle.js"></script>
+    <header class="header">
+        <nav class="nav-bar">
+          <button class="burger-menu" aria-label="Toggle navigation">
+              <div></div>
+              <div></div>
+              <div></div>
+          </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Главная</a></li>
+                <li class="nav-item active"><a href="#" class="nav-link">Проекты</a></li>
+                <li class="nav-item"><a href="works.html" class="nav-link">Список задач</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">О приложении</a></li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="sidebar">
+        <button class="close-sidebar" aria-label="Close sidebar">&times;</button>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="">Проекты</a></li>
+            <li><a href="works.html">Список задач</a></li>
+            <li><a href="about.html">О приложении</a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <section class="error-section">
+			<div class="error-image-container">
+            <img src="images/404err.svg" alt="Ошибка 404" class="error-image">
+            </div>
+            <p class="error-message">Упс! Страница не найдена.</p>
+            <p class="error-description">Похоже, вы попали не туда. Страница, которую вы ищете, была удалена, перемещена или никогда не существовала.</p>
+            <a href="index.html" class="error-back-button">Вернуться на главную</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Task Management. Все права защищены.</p>
+    </footer>
+    <script src="js/burger.js"></script>
+</body>
+</html>
