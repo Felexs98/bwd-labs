@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# IDE settings
+.vscode/
+
+# System files
+*.DS_Store
+
+# Build directories
+/build/
+/dist/
