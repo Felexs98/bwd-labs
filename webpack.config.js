@@ -55,7 +55,12 @@ module.exports = {
 			    {
                     from: path.resolve(__dirname, 'src/favicon.ico'),
                     to: path.resolve(__dirname, 'dist/favicon.ico')
-                }
+                },
+				
+			    { 
+					from: path.resolve(__dirname, 'src/js'), 
+					to: 'js' 
+                },
             ]
         })
     ],

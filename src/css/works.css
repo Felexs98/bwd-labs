@@ -25,7 +25,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 30%;
+    min-width: 200px; /* Минимальная ширина */
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -33,6 +33,62 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Стили для модального окна */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+dialog {
+    width: 300px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-task-button {
+    background-color: #1abc9c;
+}
+
+#sortAscButton, #sortDescButton {
+    background-color: #556B2F;
+color: #ffffff;
+}
+
+.sorting {
+margin-top: 15px;
+}
+
+/* Класс для отключения прокрутки */
+.no-scroll {
+    overflow: hidden;
 }
 
 .task-container .task-card:nth-child(even) {
@@ -61,7 +117,7 @@
 }
 
 /* Общие стили для кнопок, кроме burger-menu */
-.add-task-button, .delete-button, .progress-button, .complete-button {
+.add-task-button, .delete-button, .progress-button, .complete-button, #sortAscButton, #sortDescButton {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -106,6 +162,12 @@
     background-color: #1abc9c;
     animation: pulse 0.4s ease-in-out;
 }
+
+#sortAscButton:hover, #sortDescButton:hover {
+	background-color: #556B2F;
+	animation: pulse 0.4s ease-in-out;
+}
+
 
 /* Кнопка закрытия диалога */
 
@@ -231,7 +293,7 @@ input[type="text"] {
         width: 100%;
     }
 
-    .add-task-button, .delete-button, .progress-button, .complete-button {
+    .add-task-button, .delete-button, .progress-button, .complete-button, #sortAscButton, #sortDescButton {
         min-width: 100%;
         margin-top: 10px;
     }

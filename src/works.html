@@ -7,66 +7,16 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/works.css">
     <link rel="icon" href="favicon.ico">
-    <style>
-        /* Стили для модального окна */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        dialog {
-            width: 300px;
-            padding: 20px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-            background-color: #fff;
-            position: relative;
-            z-index: 1000;
-        }
-
-        dialog::backdrop {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .modal-buttons button {
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .add-task-button {
-
-            background-color: #1abc9c
-
-        }
-
-        /* Класс для отключения прокрутки */
-        .no-scroll {
-            overflow: hidden;
-        }
-    </style>
 </head>
 <body>
-	<script src="bundle.js"></script>
+    <script src="bundle.js"></script>
     <header class="header">
         <nav class="nav-bar">
-          <button class="burger-menu" aria-label="Toggle navigation">
-              <div></div>
-              <div></div>
-              <div></div>
-          </button>
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link">Главная</a></li>
                 <li class="nav-item"><a href="projects.html" class="nav-link">Проекты</a></li>
@@ -127,6 +77,11 @@
             <button class="complete-button">Отметить как выполненным</button>
             <button class="add-task-button" id="openDialogButton">Добавить задачу</button>
         </div>
+
+		<div class="sorting">
+		    <button id="sortAscButton">Сортировать по возрастанию</button>
+            <button id="sortDescButton">Сортировать по убыванию</button>
+		</div>
     </main>
 
     <footer class="footer">
@@ -147,67 +102,7 @@
     </dialog>
 
     <div id="overlay" class="overlay"></div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const openDialogButton = document.getElementById('openDialogButton');
-        const taskDialog = document.getElementById('taskDialog');
-        const closeDialogButton = document.getElementById('closeDialogButton');
-        const overlay = document.getElementById('overlay');
-
-        // Функция для отключения прокрутки
-        function disableScroll() {
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Функция для включения прокрутки
-        function enableScroll() {
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-        }
-
-        // Открыть модальное окно и отключить прокрутку
-        openDialogButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            taskDialog.showModal();
-            overlay.style.display = 'block';
-            disableScroll(); // Отключить прокрутку
-        });
-
-        // Закрыть модальное окно и включить прокрутку
-        closeDialogButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            taskDialog.close();
-            overlay.style.display = 'none';
-            enableScroll(); // Включить прокрутку
-        });
-
-        // Закрыть модальное окно при клике на оверлей
-        overlay.addEventListener('click', () => {
-            taskDialog.close();
-            overlay.style.display = 'none';
-            enableScroll();
-        });
-
-        // Закрыть модальное окно при клике вне его
-        taskDialog.addEventListener('click', (event) => {
-            const rect = taskDialog.getBoundingClientRect();
-            const isInDialog = (
-                event.clientX >= rect.left &&
-                event.clientX <= rect.right &&
-                event.clientY >= rect.top &&
-                event.clientY <= rect.bottom
-            );
-
-            if (!isInDialog) {
-                taskDialog.close();
-                overlay.style.display = 'none';
-                enableScroll();
-            }
-        });
-    });
-    </script>
+    <script src="js/works.js"></script>
     <script src="js/burger.js"></script>
 </body>
 </html>
